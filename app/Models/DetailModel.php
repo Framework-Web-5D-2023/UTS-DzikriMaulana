@@ -13,4 +13,8 @@ class DetailModel extends Model
        return $this -> findall(); 
     }
     
+    public function getDetailById($id)
+    {
+        return $this->where('id', $id)->first();
+    }
 }

@@ -55,10 +55,10 @@
                                             bersantai dan melepas penat.
                                         </p>
                                         <div class="btn-box">
-                                            <a href="base_url(/product)" class="btn1">
-                                                Belanja
+                                            <a href="/product" class="btn1">
+                                                Mulai Belanja
                                             </a>
-                                            <a href="" class="btn2">
+                                            <a href="/about" class="btn2">
                                                 Tentang Kami
                                             </a>
                                         </div>
@@ -86,10 +86,10 @@
                                             kursi, lemari, hingga tempat tidur, kami punya semuanya untuk Anda.
                                         </p>
                                         <div class="btn-box">
-                                            <a href="base_url(/product)" class="btn1">
-                                                Belanja
+                                            <a href="/product" class="btn1">
+                                                Mulai Belanja
                                             </a>
-                                            <a href="" class="btn2">
+                                            <a href="/about" class="btn2">
                                                 Tentang Kami
                                             </a>
                                         </div>
@@ -118,10 +118,10 @@
                                             menarik.
                                         </p>
                                         <div class="btn-box">
-                                            <a href="base_url(/product)" class="btn1">
-                                                Belanja
+                                            <a href="/product" class="btn1">
+                                                Mulai Belanja
                                             </a>
-                                            <a href="" class="btn2">
+                                            <a href="/about" class="btn2">
                                                 Tentang Kami
                                             </a>
                                         </div>
@@ -159,31 +159,48 @@
             <div class="row">
 
                 <?php
+                $i = 0;
                 foreach ($data as $item) {
-                    echo '<div class="col-md-6 col-lg-4">
-                        <div class="box">
-                            <div class="img-box">
-                                <img src="assets/images/' . $item["imageurl"] . '" alt="' . $item["nama"] . '">
-                            </div>
-                            <div class="detail-box">
-                                <h5>' . $item["nama"] . '</h5>
-                                <div class="price_box">
-                                    <h6 class="price_heading">
-                                        <span>Rp</span> ' . number_format($item["harga"], 0, ',', '.') . '
-                                    </h6>
-                                    <a href="">
-                                        Buy Now
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>';
+                    if ($i < 3) {
+                        echo '<div class="col-md-6 col-lg-4">
+            <div class="box">
+                <div class="img-box">
+                    <img src="assets/images/' . $item["imageurl"] . '" alt="' . $item["nama"] . '">
+                </div>
+                <div class="detail-box">
+                    <h5>' . $item["nama"] . '</h5>
+                    <div class="price_box">
+                        <h6 class="price_heading">
+                            <span>Rp</span> ' . number_format($item["harga"], 0, ',', '.') . '
+                        </h6>
+                        <a href="/order/' . $item['id'] . '">BUY NOW</a>
+                    </div>
+                </div>
+            </div>
+        </div>';
+                        $i++; // Tambahkan 1 ke variabel penanda jumlah item yang sudah ditampilkan
+                    }
                 }
                 ?>
+
+
+
 
             </div>
         </div>
     </section>
+
+    <div class="btn-box text-center">
+        <a href="/product" class="btn1"
+            style="color: white; background-color: #88d4cc; border: 2px solid #88d4cc; padding: 5px 10px;">
+            Lebih banyak? ...
+        </a>
+    </div>
+
+    </div>
+
+    <br><br>
+
 
 
     <!-- end furniture section -->
